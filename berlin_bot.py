@@ -38,7 +38,7 @@ class WebDriver:
 
 class BerlinBot:
     def __init__(self):
-        self.wait_time = 20
+        self.wait_time = 15
         self._sound_file = os.path.join(os.getcwd(), "alarm.wav")
         self._error_message = """Für die gewählte Dienstleistung sind aktuell keine Termine frei! Bitte"""
 
@@ -62,7 +62,7 @@ class BerlinBot:
         logging.info("Fill out form")
         # select china
         s = Select(driver.find_element(By.ID, 'xi-sel-400'))
-        s.select_by_visible_text("China")
+        s.select_by_visible_text("Mexiko")
         # eine person
         s = Select(driver.find_element(By.ID, 'xi-sel-422'))
         s.select_by_visible_text("eine Person")
@@ -76,11 +76,12 @@ class BerlinBot:
         time.sleep(2)
 
         # click on study group
-        driver.find_element(By.XPATH, '//*[@id="inner-479-0-2"]/div/div[1]/label/p').click()
+        driver.find_element(By.XPATH, '//*[@id="inner-353-0-2"]/div/div[1]/label/p').click()
         time.sleep(2)
 
         # b/c of stufy
-        driver.find_element(By.XPATH, '//*[@id="inner-479-0-2"]/div/div[2]/div/div[5]/label').click()
+        #driver.find_element(By.XPATH, '//*[@id="inner-353-0-2"]/div/div[2]/div/div[5]/label').click()
+        driver.find_element("id", "SERVICEWAHL_DE353-0-2-3-305244").click()
         time.sleep(4)
 
         # submit form
